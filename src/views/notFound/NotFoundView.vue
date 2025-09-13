@@ -2,8 +2,8 @@
 
 <template>
   <div class="not-found">
-    <h1>404 - Página no encontrada</h1>
-    <p>Lo sentimos, la página que buscas no existe.</p>
+    <h1 class="text-4xl font-bold text-gray-800 dark:text-gray-300">404 - Página no encontrada</h1>
+    <p class="text-gray-800 dark:text-gray-300">Lo sentimos, la página que buscas no existe.</p>
     <router-link to="/home">Volver al inicio</router-link>
   </div>
 </template>
