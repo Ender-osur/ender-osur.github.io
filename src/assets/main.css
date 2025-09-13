@@ -1,0 +1,42 @@
+@import './base.css';
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Scrollbar general */
+html::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Scrollbar en modo claro (por defecto) */
+html::-webkit-scrollbar-track {
+  background: #d8d8d8;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #1018282c;
+  border-radius: 100px;
+  border: 3px solid #ffe0d0;
+}
+
+/* Scrollbar en modo oscuro */
+html.dark::-webkit-scrollbar-track {
+  background: #101828;
+}
+
+html.dark::-webkit-scrollbar-thumb {
+  background-color: #ff9966;
+  border: 3px solid #2b2b2b;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #7b503a;
+  cursor: pointer;
+}
+
+a {
+  color: #5c3929;
+}
+
+html.dark a {
+  color: #ff9966;
+}

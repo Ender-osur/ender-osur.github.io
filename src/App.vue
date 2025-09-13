@@ -1,34 +1,27 @@
 <script setup lang="ts">
-// import HelloWorld from './components/HelloWorld.vue'
+// Importar el router view explícitamente para mejor claridad
+import { RouterView } from 'vue-router';
+import LayoutComponent from './components/layout/LayoutComponent.vue';
 </script>
 
 <template>
-  <div>
-    <h1>¡Mi Portafolio está funcionando!</h1>
-    <p>Vue + Vite + GitHub Pages</p>
-    <div>
-      <a href="https://vite.dev" target="_blank">
-        <img src="/vite.svg" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://vuejs.org/" target="_blank">
-        <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-      </a>
-    </div>
-    <!-- <HelloWorld msg="Vite + Vue" /> -->
-  </div>
+  <LayoutComponent>
+    <RouterView v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </RouterView>
+  </LayoutComponent>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
