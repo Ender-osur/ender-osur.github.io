@@ -13,4 +13,11 @@ app.use(i18n);
 app.use(createPinia());
 app.use(router);
 
+// Manejar redirección desde 404.html
+const savedRedirect = sessionStorage.getItem('redirect');
+if (savedRedirect) {
+  sessionStorage.removeItem('redirect');
+  router.replace(savedRedirect);
+}
+
 app.mount('#app');
