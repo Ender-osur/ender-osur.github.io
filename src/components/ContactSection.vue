@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
+import emailjs from '@emailjs/browser';
 
 const isSubmitted = ref(false);
+const isLoading = ref(false);
+const errorMessage = ref('');
 
 const form = reactive({
   name: '',
@@ -9,9 +12,29 @@ const form = reactive({
   message: '',
 });
 
-const handleSubmit = () => {
-  isSubmitted.value = true;
-  console.log(form);
+const handleSubmit = async () => {
+  isLoading.value = true;
+  errorMessage.value = '';
+
+  try {
+    await emailjs.send(
+      'service_4695imd',
+      'template_ckqxpoc',
+      {
+        from_name: form.name,
+        from_email: form.email,
+        message: form.message,
+      },
+      'Ii90ixvKmujhcxHqR'
+    );
+
+    isSubmitted.value = true;
+  } catch (error) {
+    console.error('Error al enviar el correo:', error);
+    errorMessage.value = 'Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.';
+  } finally {
+    isLoading.value = false;
+  }
 };
 </script>
 
@@ -42,7 +65,8 @@ const handleSubmit = () => {
               type="text"
               id="name"
               v-model="form.name"
-              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white transition-colors dark:bg-gray-900 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white"
+              :disabled="isLoading"
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white transition-colors dark:bg-gray-900 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
               required
             />
           </div>
@@ -57,7 +81,8 @@ const handleSubmit = () => {
               type="email"
               id="email"
               v-model="form.email"
-              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white transition-colors"
+              :disabled="isLoading"
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               required
             />
           </div>
@@ -72,15 +97,22 @@ const handleSubmit = () => {
               id="message"
               v-model="form.message"
               rows="4"
-              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white transition-colors"
+              :disabled="isLoading"
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               required
             ></textarea>
           </div>
+
+          <p v-if="errorMessage" class="text-red-600 dark:text-red-400 text-sm">
+            {{ errorMessage }}
+          </p>
+
           <button
             type="submit"
-            class="cursor-pointer font-[monospace] px-4 py-2 rounded-lg bg-primary hover:text-gray-900 text-gray-600 dark:text-gray-400 font-medium hover:bg-primary-dark transition-colors border-2 border-gray-500 hover:border-gray-900 hover:dark:text-gray-50 hover:dark:border-gray-200"
+            :disabled="isLoading"
+            class="cursor-pointer font-[monospace] px-4 py-2 rounded-lg bg-primary hover:text-gray-900 text-gray-600 dark:text-gray-400 font-medium hover:bg-primary-dark transition-colors border-2 border-gray-500 hover:border-gray-900 hover:dark:text-gray-50 hover:dark:border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {{ $t('contact.send') }}
+            {{ isLoading ? 'Enviando...' : $t('contact.send') }}
           </button>
         </form>
       </div>

@@ -20,13 +20,20 @@ const messages = {
     experience: {
       title: 'Experience',
       exp1: {
+        title: 'Frontend Developer',
+        company: 'Sioma Eco Zomac',
+        period: 'Mar 2025 - Feb 2026',
+        description:  "I maintained and implemented web developments in a hybrid PHP+React environment, led the migration of the legacy project to a new environment with Next.js using modern technologies such as Tailwindcss, Zustand, Shadcn, among others",
+        technologies: ['React.js', 'PHP', 'TypeScript', 'Docker', 'Next.js', 'Tailwindcss', 'Zustand', 'Shadcn', "Redux"],
+      },
+      exp2: {
         title: 'Software Engineer',
         company: 'Cuculi Inc',
         period: 'May 2024 - Sep 2024',
         description: "I developed web and mobile applications using Vue.js and Node.js. My biggest challenge was resolving the camera permissions issue between Expo 42 and Expo 44 on Android devices. I strengthened my responsive design skills",
         technologies: ['VueJS', 'Node.js', 'TypeScript', 'MongoDB','React Native', 'Angular'],
       },
-      exp2: {
+      exp3: {
         title: 'Mobile Application Developer',
         company: 'Magdalena University',
         period: 'Aug 2022 - Jul 2024',
@@ -60,6 +67,8 @@ const messages = {
       description3:'This app connects to a backend that processes data from a Cardiac Holter to display the data as medical support',
       title4: 'Infrigment defender',
       description4: "Chatbot integrated into a backend connected to an OpenAI assistant that, based on Colombian traffic laws, answers users' questions about regulations and can be used as a legal advisor",
+      title5: 'Authentication and authorization system',
+      description5: 'Authentication and authorization system for an agricultural company',
     },
     contact: {
       title: 'Get in Touch',
@@ -92,13 +101,20 @@ const messages = {
     experience: {
       title: 'Experiencia',
       exp1: {
+        title: 'Desarrollador frontend',
+        company: 'Sioma Eco Zomac',
+        period: 'Mar 2025 - Feb 2026',
+        description:  "Mantuve e implemente de desarrollos web en entorno híbrido PHP+React, lideré migración del proyecto legacy a nuevo entorno con Next.js usando tecnologías modernas como Tailwindcss, Zustand, Shadcn,  entre otras",
+        technologies: ['React.js', 'PHP', 'TypeScript', 'Docker', 'Next.js', 'Tailwindcss', 'Zustand', 'Shadcn', "Redux"],
+      },
+      exp2: {
         title: 'Ingeniero de Software',
         company: 'Cuculi Inc',
         period: 'May 2024 - Sep 2024',
         description:  "Estuve desarrollando para aplicaciones web y mobile utilizando Vue.js y Node.js; Mi mayor reto fue resolver el breaking change entre expo 42 y expo 44 con los permisos de camara en dispositivos android; Fortalecí mis habilidades para realizar diseños responsivos",
         technologies: ['Vue.js', 'Node.js', 'TypeScript', 'MongoDB'],
       },
-      exp2: {
+      exp3: {
         title: 'Desarrollador de aplicaciones móviles',
         company: 'Universidad del Magdalena',
         period: 'Ago 2022 - Jul 2024',
@@ -131,6 +147,8 @@ const messages = {
       description3:'Esta app se conecta con backend que procesa los datos de un Holter Cardíaco para visualizar los datos como apoyo médico',
       title4: 'Defensor de infracciones',
       description4: 'Chatbot integrado a un backend conectado a un asistente de openai que, basado en las leyes de tránsito colombianas, responde a los usuarios acerca de la normativa y puede ser usuado como asesor legal',
+      title5: 'Sistema de autenticación y autorización',
+      description5: 'Sistema de autenticación y autorización para una empresa de agricultura',
     },
     contact: {
       title: 'Contacto',

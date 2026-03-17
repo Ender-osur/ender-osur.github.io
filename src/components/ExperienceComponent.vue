@@ -12,13 +12,11 @@ const experience = computed<Experience>(() => {
   Object.values(exp).forEach((item: ExperienceDetail) => {
     if (item.description && typeof item.description === 'string') {
       item.description = item.description.split(';');
-      console.log('item.description: ', item.description);
     }
   });
   return exp;
 });
 
-console.log('START: ', Object.values(experience));
 
 interface Experience {
   title: string;

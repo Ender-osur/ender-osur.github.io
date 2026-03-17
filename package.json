@@ -17,6 +17,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.0.5",
     "@vueuse/core": "^12.5.0",
     "pinia": "^2.3.1",

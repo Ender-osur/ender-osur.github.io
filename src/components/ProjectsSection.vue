@@ -44,6 +44,13 @@ watchEffect(() => {
       tags: ['Vuejs', 'Tailwind 4', 'i18n', 'TS', 'Node+Express','PostgreSQL', 'Hexagonal Arch', ''],
       link: 'https://github.com/Ender-osur/fe_infringment-defender',
     },
+    {
+      title: t('projects.title5'),
+      description: t('projects.description5'),
+      image: 'image5.png',
+      tags: ['PHP', 'React.js', 'Redux', 'TS', 'Hexagonal Architecture'],
+      link: 'https://sioma.app/user/login.php',
+    },
   ];
 });
 </script>
